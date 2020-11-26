@@ -11,6 +11,19 @@ const tutorials = [
   'what is JSONP?'
 ];
 
+//Create a new array with the new names of each tutorial that is in the proper title case formatting.
+
 const titleCased = () => {
-  return tutorials
+  //each sentence on the tutorials array would be split per words
+  return tutorials.map(sentence => {
+    const arrayOfSentences = sentence.split(' ');
+    //per word, it's disect per letter..
+    //then take 1st letter of each word, upper case that and then add it back to the rest of the word
+    const words = arrayOfSentences.map(word => {
+      return word.charAt(0).toUpperCase() + word.slice(1)
+    })
+    //joining back each words into a sentence
+    const newSentence = words.join(' ')
+    return newSentence
+  })
 }
